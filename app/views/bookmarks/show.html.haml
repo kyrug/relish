@@ -1,0 +1,10 @@
+%h1= t '.title'
+%p
+  = link_to t('back'), bookmarks_path
+  = link_to t('edit'), edit_bookmark_path(@bookmark)
+
+%dl
+  %dt= Bookmark.human_attribute_name :title
+  %dd= @bookmark.title
+  %dt= Bookmark.human_attribute_name :url
+  %dd= @bookmark.url

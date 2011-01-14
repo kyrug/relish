@@ -1,0 +1,18 @@
+%h1= t('.title')
+%p= link_to t('.new_bookmark'), new_bookmark_path
+
+%table
+  %thead
+    %tr
+      %th= Bookmark.human_attribute_name :title
+      %th= Bookmark.human_attribute_name :url
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for bookmark in @bookmarks
+      %tr{ :class => cycle(:odd, :even) }
+        %td= bookmark.title
+        %td= bookmark.url
+        %td.action= link_to t('show'), bookmark
+        %td.action= link_to t('edit'), edit_bookmark_path(bookmark)
+        %td.action= link_to t('destroy'), bookmark, :confirm => t('are_you_sure'), :method => :delete
