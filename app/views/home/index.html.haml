@@ -1,2 +1,6 @@
 %h1  Relish
-%p Hello World
+
+%ul
+  - for bookmark in @bookmarks
+    %li{ :class => cycle(:odd, :even) } 
+      =link_to =bookmark.title, bookmark_url 
