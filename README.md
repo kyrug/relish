@@ -9,5 +9,8 @@ git commit & push this into the master branch.  Implement in a branch or master.
 * tagging
 * post form
 * bookmarklet (xtoddx)
+* chrome extension (nikoliawarner)
+* delicious import
+
 
 Putting some notes into the [relish wiki](https://github.com/kyrug/relish/wiki)
