@@ -10,6 +10,10 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 gem 'haml'
 
+# hpricot and ruby_parser required for devise:views generator
+gem 'hpricot'
+gem 'ruby_parser'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
