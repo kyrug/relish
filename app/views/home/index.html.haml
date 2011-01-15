@@ -1,5 +1,10 @@
 %h1  Relish
 
+%p
+  Your bookmarks are so delicious, kinda like <span class="relish_green">relish</span>.
+
+%h2 Relishious Bookmarks
+
 %ul
   - for bookmark in @bookmarks
     %li{ :class => cycle(:odd, :even) } 
