@@ -10,3 +10,4 @@ git commit & push this into the master branch.  Implement in a branch or master.
 * post form
 * bookmarklet (xtoddx)
 
+Putting some notes into the [relish wiki](https://github.com/kyrug/relish/wiki)
