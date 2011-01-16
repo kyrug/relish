@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/acts_as_taggable_on_steroids"]
+	path = vendor/plugins/acts_as_taggable_on_steroids
+	url = https://github.com/MaherSaif/acts_as_taggable_on_steroids.git
