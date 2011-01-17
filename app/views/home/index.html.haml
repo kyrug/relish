@@ -5,7 +5,6 @@
 
 %h2 Relishious Bookmarks
 
-%ul
+.bookmark_list
   - for bookmark in @bookmarks
-    %li{ :class => cycle(:odd, :even) } 
-      =link_to =bookmark.title, bookmark_url 
+    = render 'bookmarks/bookmark_row', :bookmark => bookmark

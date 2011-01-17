@@ -1,0 +1,9 @@
+.bookmark_row
+  %time
+    = bookmark.created_at
+  .title
+    = link_to bookmark.title, bookmark.url
+  .description
+    /= bookmark.description if bookmark.description
+  .tags
+    = raw bookmark.tag_list.collect{|tag| link_to(tag, tag_path(tag)) }.join(' ')
