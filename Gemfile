@@ -14,6 +14,9 @@ gem 'haml'
 gem 'hpricot'
 gem 'ruby_parser'
 
+# Pagination with pre-release of Rails 3 compatible will_paginate
+gem "will_paginate", "~> 3.0.pre2"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
