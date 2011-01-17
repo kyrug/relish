@@ -35,10 +35,7 @@ module Relish
 
     # Configure the default encoding used in templates for Ruby 1.9.
     
-    # All haml all the time ??
-    #config.generators do |g|
-    #     g.template_engine :haml
-    #end
+    
     
     config.encoding = "utf-8"
 
