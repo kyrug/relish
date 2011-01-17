@@ -2,6 +2,7 @@ Relish::Application.routes.draw do
   devise_for :users
 
   resources :bookmarks
+  resources :tags
 
   get "home/index"
 

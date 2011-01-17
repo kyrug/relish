@@ -1,0 +1,9 @@
+%h1= t '.title'
+
+%h1
+  = @tag.name
+
+.bookmark_list
+  - for bookmark in @bookmarks
+    = render 'bookmarks/bookmark_row', :bookmark => bookmark
+        

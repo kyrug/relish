@@ -1,0 +1,44 @@
+.bookmark_list {
+  width: 700px; }
+  .bookmark_list .bookmark_row {
+    padding: 5px;
+    border-bottom: 1px solid #999999; }
+    .bookmark_list .bookmark_row time {
+      color: #00cd00;
+      font-size: 12px; }
+    .bookmark_list .bookmark_row .title a {
+      text-decoration: none;
+      color: green;
+      font-size: 18px; }
+      .bookmark_list .bookmark_row .title a:hover {
+        text-decoration: underline; }
+    .bookmark_list .bookmark_row .description {
+      color: #5b9c64;
+      font-size: 15px; }
+    .bookmark_list .bookmark_row .tags {
+      padding: 5px;
+      text-align: right; }
+      .bookmark_list .bookmark_row .tags a {
+        text-decoration: none;
+        background-color: #dddddd;
+        color: black;
+        padding: 5px;
+        font-size: 12px; }
+        .bookmark_list .bookmark_row .tags a:hover {
+          background-color: #4c7064;
+          color: white; }
+
+.tag_cloud1 {
+  font-size: 20px; }
+
+.tag_cloud2 {
+  font-size: 18px; }
+
+.tag_cloud3 {
+  font-size: 15px; }
+
+.tag_cloud4 {
+  font-size: 12px; }
+
+.tag_cloud5 {
+  font-size: 9px; }

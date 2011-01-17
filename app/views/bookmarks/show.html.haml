@@ -3,10 +3,7 @@
   = link_to t('back'), bookmarks_path
   = link_to t('edit'), edit_bookmark_path(@bookmark)
 
-%dl
-  %dt= Bookmark.human_attribute_name :title
-  %dd= @bookmark.title
-  %dt= Bookmark.human_attribute_name :url
-  %dd= @bookmark.url
-  %dt= Bookmark.human_attribute_name :tag_list
-  %dd= @bookmark.tag_list
+
+.bookmark_list
+  = render 'bookmark_row', :bookmark => @bookmark
+
