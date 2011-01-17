@@ -5,7 +5,11 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.xml
   def index
-    @bookmarks = Bookmark.all
+    if user_signed_in?
+      @bookmarks = current_user.bookmarks.paginate :page => params[:page], :order => 'created_at DESC'
+    else
+      @bookmarks = Bookmark.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +48,7 @@ class BookmarksController < ApplicationController
   # POST /bookmarks.xml
   def create
     @bookmark = Bookmark.new(params[:bookmark])
+    @bookmark = current_user.bookmarks.create(params[:bookmark])
 
     respond_to do |format|
       if @bookmark.save
