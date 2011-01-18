@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   
   # Associations / Relationships
   has_many :bookmarks
+  
+  # Roles
+  ROLES = %w[admin author banned]
+  
 end

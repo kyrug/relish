@@ -1,0 +1,8 @@
+%h1= t '.title'
+
+%h1
+  = "#{@user.username}'s Bookmarks"
+
+= render 'bookmarks/bookmark_list', :bookmarks => @user.bookmarks
+
+        

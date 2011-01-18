@@ -8,6 +8,7 @@ gem 'rails', '3.0.3'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'devise'
+gem 'cancan'
 gem 'haml'
 
 # hpricot and ruby_parser required for devise:views generator

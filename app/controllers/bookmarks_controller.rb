@@ -2,6 +2,8 @@ class BookmarksController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   # :only => [:new, :edit, :update, :destroy]
   
+  load_and_authorize_resource
+  
   # GET /bookmarks
   # GET /bookmarks.xml
   def index
