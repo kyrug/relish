@@ -12,7 +12,7 @@ git commit & push this into the master branch.  Implement in a branch or master.
 * api
 * chrome extension (nikolaiwarner)
 * iphone/android apps (nikolaiwarner)
-* delicious import
+* delicious import using some queue like Delayed Job (or similar) via Delicious API or file upload
 
 
 
