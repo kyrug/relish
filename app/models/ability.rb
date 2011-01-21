@@ -4,12 +4,12 @@ class Ability
   def initialize user
     user ||= User.new
     
-    if user.role? :admin
+    if user.role == 'admin'
       can :manage, :all
     else
       can :read, :all
       
-      if user.role? :author
+      if user.role == 'author'
         can :create, Bookmark
         can [:update, :destroy], Bookmark do |bookmark|
           bookmark.try(:user) == user

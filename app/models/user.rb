@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   # Roles
   ROLES = %w[admin author banned]
   
+  def to_param
+    username
+  end
+  
 end
