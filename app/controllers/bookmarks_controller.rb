@@ -1,12 +1,13 @@
 class BookmarksController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-  # :only => [:new, :edit, :update, :destroy]
-  
+  # Because index shows newest bookmarks for all users
+  # If a user is logged in, index shows their bookmarks instead
+  # Show should work for public bookmarks
+
   load_and_authorize_resource
-  
-  # GET /bookmarks
-  # GET /bookmarks.xml
+
   def index
+    # TODO: use cancan for these.
     if user_signed_in?
       @bookmarks = current_user.bookmarks.paginate :page => params[:page], :order => 'created_at DESC'
     else
@@ -19,42 +20,45 @@ class BookmarksController < ApplicationController
     end
   end
 
-  # GET /bookmarks/1
-  # GET /bookmarks/1.xml
   def show
-    @bookmark = Bookmark.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @bookmark }
     end
   end
 
-  # GET /bookmarks/new
-  # GET /bookmarks/new.xml
   def new
-    @bookmark = Bookmark.new
-
+    if not params[:url].empty?
+      @bookmark.url = params[:url]
+    end
+    if not params[:title].empty?
+      @bookmark.title = params[:title]
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @bookmark }
     end
   end
 
-  # GET /bookmarks/1/edit
   def edit
-    @bookmark = Bookmark.find(params[:id])
+    # Thanks, cancan! (no-op)
   end
 
-  # POST /bookmarks
-  # POST /bookmarks.xml
   def create
+    # TODO: figure out which of these works best and pairs with cancan
     @bookmark = Bookmark.new(params[:bookmark])
     @bookmark = current_user.bookmarks.create(params[:bookmark])
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to(@bookmark, :notice => 'Bookmark was successfully created.') }
+        format.html do
+          if params[:goback]
+            redirect_to(@bookmark.url)
+          else
+            redirect_to(@bookmark,
+                        :notice => 'Bookmark was successfully created.')
+          end
+        end
         format.xml  { render :xml => @bookmark, :status => :created, :location => @bookmark }
       else
         format.html { render :action => "new" }
@@ -63,11 +67,7 @@ class BookmarksController < ApplicationController
     end
   end
 
-  # PUT /bookmarks/1
-  # PUT /bookmarks/1.xml
   def update
-    @bookmark = Bookmark.find(params[:id])
-
     respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
         format.html { redirect_to(@bookmark, :notice => 'Bookmark was successfully updated.') }
@@ -79,12 +79,8 @@ class BookmarksController < ApplicationController
     end
   end
 
-  # DELETE /bookmarks/1
-  # DELETE /bookmarks/1.xml
   def destroy
-    @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-
     respond_to do |format|
       format.html { redirect_to(bookmarks_url) }
       format.xml  { head :ok }
