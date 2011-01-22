@@ -1,9 +1,4 @@
 %h1= t '.title'
-%p
-  = link_to t('back'), bookmarks_path
-  = link_to t('edit'), edit_bookmark_path(@bookmark)
 
-
-.bookmark_list
-  = render 'bookmark_row', :bookmark => @bookmark
+= render 'bookmarks/bookmark_list', :bookmarks => [@bookmark]
 

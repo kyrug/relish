@@ -9,4 +9,18 @@ class User < ActiveRecord::Base
   
   # Associations / Relationships
   has_many :bookmarks
+  
+  # Roles
+  ROLES = %w[admin author banned]
+  
+  before_create :set_default_role
+
+  def set_default_role
+    self.role = "author"
+  end
+  
+  def to_param
+    username
+  end
+  
 end

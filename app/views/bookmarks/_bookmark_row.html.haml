@@ -7,3 +7,6 @@
     /= bookmark.description if bookmark.description
   .tags
     = raw bookmark.tag_list.collect{|tag| link_to(tag, tag_path(tag)) }.join(' ')
+  - if can? :update, bookmark
+    .admin
+      = link_to t('edit'), edit_bookmark_path(bookmark)

@@ -1,6 +1,7 @@
 Relish::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:users => "users"}
 
+  resources :users
   resources :bookmarks
   resources :tags
 

@@ -1,6 +1,6 @@
 %h1= t('.title')
-%p= link_to t('.new_bookmark'), new_bookmark_path
 
-.bookmark_list
-  - for bookmark in @bookmarks
-    = render 'bookmark_row', :bookmark => bookmark
+- if can? :create, Bookmark
+  %p= link_to t('.new_bookmark'), new_bookmark_path
+
+= render 'bookmarks/bookmark_list', :bookmarks => @bookmarks

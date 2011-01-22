@@ -1,10 +1,10 @@
 %h1  Relish
 
 %p
-  Your bookmarks are so delicious, kinda like <span class="relish_green">relish</span>.
+  Your bookmarks are so delicious, kinda like 
+  %span.class
+    relish.
 
 %h2 Relishious Bookmarks
 
-.bookmark_list
-  - for bookmark in @bookmarks
-    = render 'bookmarks/bookmark_row', :bookmark => bookmark
+= render 'bookmarks/bookmark_list', :bookmarks => @bookmarks
