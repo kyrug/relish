@@ -1,10 +1,8 @@
 class TagsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-  load_and_authorize_resource
+  load_and_authorize_resource :find_by => :name
 
   def index
-    @tags = Tag.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tags }
@@ -12,8 +10,6 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find_by_name(params[:id])
-    
     @bookmarks = @tag.taggings.collect { |tagging|   
       Bookmark.find(tagging.taggable_id)
     }
