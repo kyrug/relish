@@ -28,10 +28,10 @@ class BookmarksController < ApplicationController
   end
 
   def new
-    if not params[:url].empty?
+    if not params[:url].blank?
       @bookmark.url = params[:url]
     end
-    if not params[:title].empty?
+    if not params[:title].blank?
       @bookmark.title = params[:title]
     end
     respond_to do |format|
