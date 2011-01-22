@@ -10,6 +10,6 @@
 = render 'bookmarks/bookmark_list', :bookmarks => @bookmarks
 
 .extra-actions
-  = link_to "New bookmark", new_bookmark_url
+  = link_to t('.new_bookmark'), new_bookmark_path
   %a.bookmarklet{ :href => "javascript:" + File.read(Rails.root.join("public", "bookmarklet", "0.1", "relish.js")) }
     Post to Relish (Bookmarklet)
