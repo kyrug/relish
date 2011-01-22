@@ -1,0 +1,10 @@
+%h1= t '.title'
+
+%p WTF? No Bookmarks here.
+
+%p= link_to 'Go see all the bookmarks', bookmarks_path
+
+.extra-actions
+  = link_to t('.new_bookmark'), new_bookmark_path
+  %a.bookmarklet{ :href => "javascript:" + File.read(Rails.root.join("public", "bookmarklet", "0.1", "relish.js")) }
+    Post to Relish (Bookmarklet)

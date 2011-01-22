@@ -17,6 +17,9 @@ en:
     edit: "Edit"
     edit:
       title: "Relishious Bookmark Editing"
+    no_bookmarks:
+      title: "Doh! No Bookmarks."
+      new_bookmark: "Add a Bookmark"
   tags:
     index:
       title: "Relishious Tags"
