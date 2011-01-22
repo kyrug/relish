@@ -43,10 +43,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    # TODO: figure out which of these works best and pairs with cancan
-    @bookmark = Bookmark.new(params[:bookmark])
-    @bookmark = current_user.bookmarks.create(params[:bookmark])
-
+    @bookmark.user = current_user
     respond_to do |format|
       if @bookmark.save
         format.html do
