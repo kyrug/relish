@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
   # Roles
   ROLES = %w[admin author banned]
   
+  before_create :set_default_role
+
+  def set_default_role
+    self.role = "author"
+  end
+  
   def to_param
     username
   end
