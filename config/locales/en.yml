@@ -3,3 +3,12 @@
 
 en:
   hello: "Hello world"
+  bookmarks:
+    index:
+      title: "Relishious Bookmarks"
+      new_bookmark: "Add a bookmark"
+    new:
+      title: "New Bookmark"
+    edit:
+      title: "Relishious Bookmark Editing"
+    
