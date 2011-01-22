@@ -7,11 +7,9 @@ class BookmarksController < ApplicationController
   load_and_authorize_resource
 
   def index
-    # TODO: use cancan for these.
     if user_signed_in?
-      @bookmarks = current_user.bookmarks.paginate :page => params[:page], :order => 'created_at DESC'
-    else
-      @bookmarks = Bookmark.all
+      @bookmarks = @bookmarks.where(:user_id => current_user.id).paginate(
+                     :page => params[:page], :order => 'created_at DESC')
     end
 
     respond_to do |format|
