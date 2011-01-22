@@ -9,6 +9,12 @@ en:
       new_bookmark: "Add a bookmark"
     new:
       title: "New Bookmark"
+    edit: "Edit"
     edit:
       title: "Relishious Bookmark Editing"
+  tags:
+    index:
+      title: "Relishious Tags"
+    show:
+      title: "Relishious Tag"
     
