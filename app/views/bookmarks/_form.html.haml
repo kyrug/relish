@@ -19,5 +19,8 @@
     = f.label :tag_list
     = f.text_field :tag_list
 
+  - if params[:goback]
+    %input{:type => :hidden, :name => :goback, :value => 1}
+
   .actions
     = f.submit
