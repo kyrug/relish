@@ -5,6 +5,9 @@ en:
   hello: "Hello world"
   edit: "edit"
   new: "new"
+  home:
+    index:
+      new_bookmar: Add a Bookmark
   bookmarks:
     index:
       title: "Relishious Bookmarks"
