@@ -10,6 +10,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 gem 'cancan'
 gem 'haml'
+gem 'jquery-rails', '>= 0.2.6'
 
 # hpricot and ruby_parser required for devise:views generator
 gem 'hpricot'
