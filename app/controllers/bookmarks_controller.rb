@@ -65,7 +65,7 @@ class BookmarksController < ApplicationController
   def update
     respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
-        format.html { redirect_to(@bookmark, :notice => 'Bookmark was successfully updated.') }
+        format.html { redirect_to(bookmarks_url, :notice => 'Bookmark was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

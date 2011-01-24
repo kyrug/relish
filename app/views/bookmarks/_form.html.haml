@@ -18,6 +18,10 @@
   .field
     = f.label :tag_list
     = f.text_field :tag_list
+  
+  .field
+    = f.label :private
+    = f.check_box :private
 
   - if params[:goback]
     %input{:type => :hidden, :name => :goback, :value => 1}

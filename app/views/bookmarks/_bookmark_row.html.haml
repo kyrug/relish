@@ -3,6 +3,8 @@
     = bookmark.created_at
   .title
     = link_to bookmark.title, bookmark.url
+    - if bookmark.private == 1
+      %img{:src => '../images/lock.png', :title => 'Private'}
   .description
     /= bookmark.description if bookmark.description
   .tags
