@@ -6,6 +6,8 @@ class BookmarksController < ApplicationController
 
   load_and_authorize_resource
 
+  
+
   def index
     if user_signed_in?
       @bookmarks = @bookmarks.where(:user_id => current_user.id).paginate(

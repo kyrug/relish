@@ -11,6 +11,7 @@ gem 'devise'
 gem 'cancan'
 gem 'haml'
 gem 'jquery-rails', '>= 0.2.6'
+gem 'rails3-jquery-autocomplete'
 
 # hpricot and ruby_parser required for devise:views generator
 gem 'hpricot'
