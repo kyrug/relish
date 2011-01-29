@@ -14,3 +14,12 @@ Active Tasks
 * iphone/android apps (nikolaiwarner)
 * delicious import using some queue like Delayed Job (or similar) via Delicious API or file upload
 * jQuery support (chaserx)
+
+Quick Start
+-----------
+* git clone git@github.com:kyrug/relish.git
+* git submodule init
+* git submodule update
+* bundle install
+* rake db:setup
+
