@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   load_and_authorize_resource :find_by => :name
 
-  autocomplete :tag_list, :name
+  autocomplete :tags, :name
 
   rescue_from ActiveRecord::RecordNotFound, :with => :no_bookmarks_for_tag
 
