@@ -13,7 +13,7 @@ Active Tasks
 * chrome extension (nikolaiwarner)
 * iphone/android apps (nikolaiwarner)
 * delicious import using some queue like Delayed Job (or similar) via Delicious API or file upload
-* jQuery support (chaserx)
+
 
 Quick Start
 -----------
