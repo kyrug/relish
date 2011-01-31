@@ -4,10 +4,18 @@
   Your bookmarks are so delicious, kinda like 
   %span.class
     relish.
+  
 
-%h2 Relishious Bookmarks
+#{link_to_your_bookmarks}
 
-= render 'bookmarks/bookmark_list', :bookmarks => @bookmarks
+%div#tabs
+  %ul
+    %li= link_to t('recent'), "/?view=recent"
+    %li= link_to t('popular'), "/?view=popular"
+
+= render :partial=>'urls/item', :collection=>@bookmarks, :as=>:bookmark
+
+= will_paginate(@bookmarks)
 
 .extra-actions
   = link_to t('.new_bookmark'), new_bookmark_path

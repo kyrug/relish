@@ -19,6 +19,15 @@ gem 'ruby_parser'
 # Pagination with pre-release of Rails 3 compatible will_paginate
 gem "will_paginate", "~> 3.0.pre2"
 
+gem "mongo_mapper"
+
+gem 'acts_as_mongo_taggable'
+
+gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
+
+
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -41,3 +50,16 @@ gem "will_paginate", "~> 3.0.pre2"
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+group :development, :test do
+  gem "rspec"
+  gem "rspec-rails",      ">= 2.0.0.beta"
+  gem "nokogiri"
+  gem "capybara"
+  gem "cucumber"
+  gem "database_cleaner"
+  gem "cucumber-rails"
+end
+gem "bcrypt-ruby", :require => "bcrypt"
+gem "mocha", :group => :test
+gem 'bson_ext'

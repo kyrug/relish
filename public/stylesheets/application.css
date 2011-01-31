@@ -42,3 +42,21 @@
 
 .tag_cloud5 {
   font-size: 9px; }
+
+
+
+
+a { color: #336699}
+.bookmark { border-bottom:1px solid #e0e0e0;padding:10px}
+.bookmark .add_date { float:left;width:75px;text-transform:uppercase;font-size:smaller;color:#999 }
+.bookmark .data { margin-left:90px;}
+.bookmark .data h4 { margin:0px 0px 5px 0px;font-weight:normal;font-size:15px;}
+.bookmark .data h4 a { text-decoration:none}
+.bookmark .tags { float:right;margin-top:5px;font-size:smaller}
+.bookmark .tags a { background:#f0f0f0;color:#555;padding:2px 7px;text-decoration:none}
+.bookmark .actions { float:right;}
+.bookmark .actions .user_count a { background:#336699;padding:2px 5px;color:white;text-decoration:none}
+.data .actions { margin-bottom:0px;}
+.via { color:#999999;font-size:smaller}
+.tag_crumbs { margin-bottom:10px;}
+.tag_crumbs a { background:#e0e0e0;padding:5px;margin-right:5px;}

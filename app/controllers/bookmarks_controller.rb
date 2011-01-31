@@ -8,8 +8,8 @@ class BookmarksController < ApplicationController
 
   def index
     if user_signed_in?
-      @bookmarks = @bookmarks.where(:user_id => current_user.id).paginate(
-                     :page => params[:page], :order => 'created_at DESC')
+      @bookmarks = current_user.bookmarks.ordered.paginate(
+                     :page => params[:page])
     end
 
     respond_to do |format|
@@ -50,8 +50,7 @@ class BookmarksController < ApplicationController
           if params[:goback]
             redirect_to(@bookmark.url)
           else
-            redirect_to(@bookmark,
-                        :notice => 'Bookmark was successfully created.')
+            redirect_to(user_bookmarks_path(current_user), :notice=>'Bookmark was successfully created.')
           end
         end
         format.xml  { render :xml => @bookmark, :status => :created, :location => @bookmark }
@@ -65,7 +64,7 @@ class BookmarksController < ApplicationController
   def update
     respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
-        format.html { redirect_to(bookmarks_url, :notice => 'Bookmark was successfully updated.') }
+        format.html { redirect_to(user_bookmarks_path(current_user), :notice => 'Bookmark was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -77,8 +76,10 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark.destroy
     respond_to do |format|
-      format.html { redirect_to(bookmarks_url) }
+      format.html { redirect_to(user_bookmarks_path(current_user)) }
       format.xml  { head :ok }
     end
   end
+  
+  
 end

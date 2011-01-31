@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource :find_by => :username
 
   def index
-    @users = @users.paginate :page => params[:page], :order => 'created_at DESC'
+    @users = User.all.paginate :page => params[:page], :order => 'created_at DESC'
 
     respond_to do |format|
       format.html # index.html.erb

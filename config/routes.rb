@@ -1,9 +1,11 @@
 Relish::Application.routes.draw do
   devise_for :users, :controllers => {:users => "users"}
 
-  resources :users
+ 
+  resources :users 
   resources :bookmarks
   resources :tags
+  resources :urls 
 
   get "home/index"
 
@@ -57,6 +59,15 @@ Relish::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "home#index"
+
+  match '/import' => 'import#index', :as=>'import'
+  match '/upload' => 'import#upload', :as=>'upload'  
+  match '/tag/*tags' => 'tag#show', :as=>'tag'
+  match '/popular' => 'home#popular', :as=>'popular'
+  match "/:username/tag/*tags" => 'user#tags', :as=>'user_tag'
+  match "/*username" => 'user#bookmarks', :as=>'user_bookmarks'
+
+
 
   # See how all your routes lay out with "rake routes"
 
