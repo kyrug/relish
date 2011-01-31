@@ -1,7 +1,4 @@
 class User
-  include MongoMapper::Document
-  plugin MongoMapper::Devise
-
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :token_authenticatable, :database_authenticatable, :registerable,
@@ -10,26 +7,6 @@ class User
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :username
-   
-  key :email, String
-  key :encrypted_password, String
-  key :password_salt, String
-  key :reset_password_token, String
-  key :remember_token, String
-  key :remember_created_at, String
-  key :sign_in_count, Integer
-  key :current_sign_in_at, DateTime
-  key :last_sign_in_at, DateTime
-  key :current_sign_in_ip, String
-  key :last_sign_in_ip, String
-  key :username, String
-  key :role, String
-  key :authentication_token
-  timestamps!
-    
-  key :display_name, String
-  key :slug, String, :index=>true 
-              
 
   # Associations / Relationships
   has_many :bookmarks

@@ -34,6 +34,8 @@ en:
     no_bookmarks:
       title: "Doh! No Bookmarks."
       new_bookmark: "Add a Bookmark"
+    show:
+      title: "Relishious Bookmark"
   tags:
     index:
       title: "Relishious Tags"
