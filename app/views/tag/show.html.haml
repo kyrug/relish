@@ -1,8 +1,0 @@
-%h2= 'Tags'
-
-.tag_crumbs
-  = tag_crumbs(params[:tags].split('/'))
-  
-= render :partial=>'urls/item', :collection=>@urls, :as=>:bookmark
-
-= will_paginate(@urls)

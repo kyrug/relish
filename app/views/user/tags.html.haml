@@ -1,9 +1,0 @@
-
-%h1= "#{@user.username}'s #{t('bookmarks.label')}"
-
-.tag_crumbs
-  = tag_crumbs(params[:tags].split('/'))
-
-= render :partial=>'bookmark/item', :collection=>@bookmarks, :as=>:bookmark
-
-= will_paginate(@bookmarks)
