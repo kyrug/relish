@@ -3,10 +3,10 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Bookmark do
   
     before(:each) do
-      @user = User.new(:email=>'creighton.medley@gmail.com', :display_name=>'cmed')
+      @user = User.new(:email=>'test@test.com', :display_name=>'test')
       @bookmark = Bookmark.new(
         :title => "Sample title",
-        :url => "http://www.mercurygrove.com",
+        :url => "http://test.com",
         :tags => ["consulting", "development"]
       )
       @user.bookmarks << @bookmark

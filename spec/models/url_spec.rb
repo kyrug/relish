@@ -5,7 +5,7 @@ describe Url do
   describe "Creating a new url" do
     before(:each) do 
       @url = Url.new(
-          :url=>"http://www.mercurygrove.com",
+          :url=>"http://test.com",
           :total_saves => 3,
           :created_at => Time.now
        )
