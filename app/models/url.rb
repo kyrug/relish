@@ -16,7 +16,18 @@ class Url
   
   has_many :bookmarks, :order=>'add_date desc'
   
+  scope :publicly_available, {:total_saves.gt => 0}
+  
   scope :ordered, lambda {|*args| {:order => (args.first || 'add_date desc')} }
+
+  def self.generate_url_stats(url)
+    url = Url.first(:url=>url)
+    if url
+      url.total_saves = url.bookmarks.publicly_available.count
+      url.generate_hotness
+      url.save
+    end
+  end
 
   def generate_hotness
     self.hotness = self.total_saves / (Time.now - self.created_at) 
@@ -29,5 +40,6 @@ class Url
   def private?
     false
   end
+  
   
 end

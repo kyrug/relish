@@ -11,7 +11,7 @@ class ImportController < ApplicationController
           :url      => link['href'],
           :tags     => link['tags'].split(','),
           :add_date => Time.at(link['add_date'].to_i),
-          :private  => link['private']
+          :private  => (link['private'].to_i == 1) ? true : false
         )
       current_user.bookmarks << bookmark
     end

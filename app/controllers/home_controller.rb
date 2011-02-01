@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index     
-    @bookmarks = Url.ordered(sort_params[params[:view]]).paginate({
+    @bookmarks = Url.publicly_available.ordered(sort_params[params[:view]]).paginate({
         :per_page=>25,
         :page=>params[:page] || 1
     })
@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   
   
   def popular
-    @bookmarks = Url.ordered('popular').paginate({
+    @bookmarks = Url.publicly_available.ordered('popular').paginate({
         :per_page=>25,
         :page=>params[:page] || 1
     })

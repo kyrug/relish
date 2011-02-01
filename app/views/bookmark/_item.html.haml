@@ -5,7 +5,7 @@
       - if bookmark.private?
         = image_tag('lock.png', :title=>'Private')
       - else
-        .user_count= link_to bookmark.total_saves, url_path(bookmark.url_id)     
+        .user_count= link_to(bookmark.total_saves, url_path(bookmark.url_id)) if bookmark.master?    
     %h4.title= link_to bookmark.title, bookmark.url
     .tags
       - bookmark.tags.each do |tag|
