@@ -40,6 +40,5 @@ class Url
   def private?
     false
   end
-  
-  
+
 end

@@ -19,10 +19,10 @@ class Bookmark
   belongs_to :user
   belongs_to :master, :class_name=>'Url', :foreign_key=>:url_id
  
-  before_save :ensure_url_protocol
-  before_save :handle_privacy_changes
   before_create :ensure_add_date
   before_create :find_or_create_master
+  before_save :ensure_url_protocol
+  before_save :handle_privacy_changes
   after_save :push_tags_to_master
   after_save :generate_url_stats
   
@@ -74,17 +74,25 @@ class Bookmark
   end
 
   def handle_privacy_changes
-    if self.private_changed? && self.private?
+    if going_private?
       self.master.delete_tags_by_user(self.user)
       self.master = nil
-    end
-    if self.private_changed? && self.public?
+    elsif going_public?
       find_or_create_master
     end
   end
   
   def generate_url_stats
     Url.generate_url_stats(self.url)
+  end
+  
+  protected
+  def going_private?
+    self.private_changed? && self.private?
+  end
+  
+  def going_public?
+    self.private_changed? && self.public?
   end
 
 end
