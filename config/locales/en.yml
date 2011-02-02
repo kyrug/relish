@@ -5,24 +5,10 @@ en:
   hello: "Hello world"
   edit: "edit"
   new: "new"
-  everyones_bookmarks_for: "Everyone's Bookmarks for"
-  history: 'History'
-  via: "via"
-  recent: 'Recent'
-  popular: 'Popular'
-  explore_tags: 'Explore Tags'
-  your_bookmarks: 'your bookmarks'
-  delete: 'delete'
-  hi: 'Hi'
-  see: 'see'
-  upload: 'Upload'
-  
   home:
-    label: 'home'
     index:
       new_bookmark: Add a Bookmark
   bookmarks:
-    label: 'bookmarks'
     index:
       title: "Relishious Bookmarks"
       new_bookmark: "Add a Bookmark"
@@ -41,3 +27,4 @@ en:
       title: "Relishious Tags"
     show:
       title: "Relishious Tag"
+    

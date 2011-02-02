@@ -1,31 +1,7 @@
 class HomeController < ApplicationController
-
-  def index     
-    @bookmarks = Url.ordered(sort_params[params[:view]]).paginate({
-        :per_page=>25,
-        :page=>params[:page] || 1
-    })
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @bookmarks }
-    end
-  end
-  
-  
-  def popular
-    @bookmarks = Url.ordered('popular').paginate({
-        :per_page=>25,
-        :page=>params[:page] || 1
-    })
-    respond_to do |format|
-      format.html {render :template=>'home/index'  }
-      format.xml  { render :xml => @bookmarks }
-    end
-  end
-
-  def sort_params
-    { "popular" => "hotness desc",
-      "recent"  => "add_date desc" }
+  # show all public bookmarks in the most recent order
+  def index
+    @bookmarks = Bookmark.where(:private => 0).all.paginate(:page => params[:page], :order => 'created_at DESC')
   end
 
 end

@@ -1,6 +1,0 @@
-
-%h1= "#{@user.username}'s bookmarks"
-  
-= render :partial=>'bookmark/item', :collection=>@bookmarks, :as=>:bookmark
-
-= will_paginate(@bookmarks)

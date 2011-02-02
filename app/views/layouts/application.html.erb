@@ -10,15 +10,9 @@
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<div id="nav">
-  <ul>
-    <li><%= link_to(t('home.label'), '/')%></li>
-    <li><%= link_to_bookmarks_page %></li>
-  </ul>
-</div>
 <div id="user_nav">
   <% if user_signed_in? %>
-    <%= t('hi')%>, <%= current_user.username %>
+    Signed in as <%= current_user.username %>. Not you?
     <%= link_to "Sign out", destroy_user_session_path %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
