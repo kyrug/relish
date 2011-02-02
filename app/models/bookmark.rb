@@ -1,3 +1,5 @@
+require 'serialization'
+
 class Bookmark
   include MongoMapper::Document
   include MongoMapper::Plugins::Serialization
