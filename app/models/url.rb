@@ -1,9 +1,6 @@
-require 'serialization'
-
 class Url
   include MongoMapper::Document
   include ActsAsMongoTaggable
-  include MongoMapper::Plugins::Serialization
   
   key :total_saves, Integer, :default=>0
   key :title, String
