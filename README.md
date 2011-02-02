@@ -23,3 +23,7 @@ Quick Start
 * bundle install
 * rake db:setup
 
+Recent Issues
+-------------
+
+I accidentially pulled the mongo branch into master. After much deliberation, I reverted back my commits to before that merge. Seems to be working again. -chase
