@@ -6,6 +6,11 @@ class BookmarksController < ApplicationController
 
   load_and_authorize_resource
 
+  # in rails 3 it seems like you can do
+  # respond_to :html, :json 
+  # here and below in the method you can do
+  # respond_with(@bookmarks = Bookmark.all)
+
   def index
     if user_signed_in?
       @bookmarks = @bookmarks.where(:user_id => current_user.id).paginate(
@@ -15,6 +20,7 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @bookmarks }
+      format.json { render :json => @bookmarks }
     end
   end
 
@@ -22,6 +28,7 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @bookmark }
+      format.json { render :json => @bookmark }
     end
   end
 
@@ -35,6 +42,7 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @bookmark }
+      format.json { render :json => @bookmark }
     end
   end
 
@@ -55,9 +63,11 @@ class BookmarksController < ApplicationController
           end
         end
         format.xml  { render :xml => @bookmark, :status => :created, :location => @bookmark }
+        format.json  { render :json => @bookmark, :status => :created, :location => @bookmark }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @bookmark.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -67,9 +77,11 @@ class BookmarksController < ApplicationController
       if @bookmark.update_attributes(params[:bookmark])
         format.html { redirect_to(bookmarks_url, :notice => 'Bookmark was successfully updated.') }
         format.xml  { head :ok }
+        format.json  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @bookmark.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -79,6 +91,7 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(bookmarks_url) }
       format.xml  { head :ok }
+      format.json  { head :ok }
     end
   end
 end
