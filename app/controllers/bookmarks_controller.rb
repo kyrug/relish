@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
 
   load_and_authorize_resource
 
-  autocomplete :tags, :name
+  autocomplete :tag, :name
 
   def index
     if user_signed_in?

@@ -18,7 +18,8 @@
   .field
     = f.label :tag_list
     // = f.text_field :tag_list
-    = f.autocomplete_field :tag_list, autocomplete_tags_name_bookmarks_path
+    %br
+    = f.autocomplete_field :tag_list, bookmark_autocomplete_tag_name_path
   
   .field
     = f.label :private

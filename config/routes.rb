@@ -7,9 +7,9 @@ Relish::Application.routes.draw do
 
   get "home/index"
   
-  resources :bookmarks do
-    get :autocomplete_tags_name, :on => :collection
-  end
+  get 'bookmark/autocomplete_tag_name'
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
