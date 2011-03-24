@@ -34,9 +34,11 @@ class BookmarksController < ApplicationController
     if not params[:title].blank?
       @bookmark.title = params[:title]
     end
+    @tags = Tag.where("name like ?", "%#{params[:q]}%")
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @bookmark }
+      format.json { render :json => @tags.map(&:attributes)}
     end
   end
 

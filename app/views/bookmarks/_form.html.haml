@@ -19,7 +19,7 @@
     = f.label :tag_list
     // = f.text_field :tag_list
     %br
-    = f.autocomplete_field :tag_list, bookmark_autocomplete_tag_name_path
+    = f.autocomplete_field :tag_list, autocomplete_tag_name_new_bookmark_path, :"data-delimiter" => ', '
   
   .field
     = f.label :private

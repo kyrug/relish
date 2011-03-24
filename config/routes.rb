@@ -2,12 +2,16 @@ Relish::Application.routes.draw do
   devise_for :users, :controllers => {:users => "users"}
 
   resources :users
-  resources :bookmarks
+  # resources :bookmarks
   resources :tags
-
+  
+  resources :bookmarks do
+    get :autocomplete_tag_name, :on => :collection    
+  end
+  
   get "home/index"
   
-  get 'bookmark/autocomplete_tag_name'
+  #get 'bookmark/autocomplete_tag_name'
   
   
 
